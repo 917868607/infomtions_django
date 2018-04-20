@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %} ">
+
+</head>
+<body>
+{% if result1 %}
+<form action="{% url 'update' %}/?id={{result1.id  }}" method="post" class="smart-green">
+    {% csrf_token %}
+    <h1>个人主页信息
+        <span>请留下你的信息</span>
+    </h1>
+    <label>
+        <span>姓名 :</span>
+        <input id="name"  type="text" name="name" class="error" placeholder="{{ result1.name }}" value="{{ result1.name }}"/>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>人生格言 :</span>
+        <textarea id="life_info" name="life_info"  placeholder="{{result1.motto }}" ></textarea>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>专业 :</span>
+        <input id="job" type="text"  name="job" placeholder="{{ result1.profession }}" value="{{ result1.profession }}"/>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>专业描述 :</span>
+        <textarea id="job_info" name="job_info"  placeholder="{{ result1.profession_info }}"></textarea>
+        <div class="error-msg"></div>
+    </label>
+
+    <label>
+        <span>同学:</span>
+        <input id="classmate" type="text"  name="classmate" placeholder="{{ result1.student }}" value="{{ result1.student }}"/>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>同学描述 :</span>
+        <textarea id="classmate_info" name="classmate_info"  placeholder="{{ result1.student_info }}"></textarea>
+        <input  type="hidden"  name="classmate_info" placeholder="{{ result1.student_info }}" value="{{result1.student_info }}"/>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>家乡:</span>
+        <input id="home" type="text"  name="home" placeholder="{{ result1.address }}" value="{{result1.address }}"/>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>家乡描述:</span>
+        <textarea id="home_info" name="home_info"  placeholder="{{ result1.address_info }}"></textarea>
+        <input  type="hidden"  name="classmate_info" placeholder="{{ result1.address_info }}" value="{{result1.address_info }}"/>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>学校:</span>
+        <input id="school" type="text"  name="school" placeholder="{{ result1.school }}" value="{{ result1.school }}"/>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>学校描述 :</span>
+        <textarea id="school_info" name="school_info"  placeholder="{{ result1.school_info }}"></textarea>
+        <input  type="hidden"  name="school_info" placeholder="{{ result1.school_info }}" value="{{result1.school_info }}"/>
+        <div class="error-msg"></div>
+    </label>
+    <div class="success-msg"></div>
+    <label>
+        <span>&nbsp;</span>
+        <input type="submit" class="button" value="提交"/>
+    </label>
+
+
+</form>
+{% else %}
+<form action="{% url 'update' %}" method="post" class="smart-green">
+    {% csrf_token %}
+    <h1>个人主页信息
+        <span>请留下你的信息</span>
+    </h1>
+    <label>
+        <span>姓名 :</span>
+        <input id="name"  type="text" name="name" class="error" placeholder="请输入您的姓名"/>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>人生格言 :</span>
+        <textarea id="life_info" name="life_info"  placeholder="请输入您的人生格言"></textarea>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>专业 :</span>
+        <input id="job" type="text"  name="job" placeholder="请输入所学专业"/>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>专业描述 :</span>
+        <textarea id="job_info" name="job_info"  placeholder="请输入对专业的描述"></textarea>
+        <div class="error-msg"></div>
+    </label>
+
+    <label>
+        <span>同学:</span>
+        <input id="classmate" type="text"  name="classmate" placeholder="请输入同学名称，多个之间用,隔开"/>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>同学描述 :</span>
+        <textarea id="classmate_info" name="classmate_info"  placeholder="请输入对同学的描述"></textarea>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>家乡:</span>
+        <input id="home" type="text"  name="home" placeholder="请输入您的家乡"/>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>家乡描述:</span>
+        <textarea id="home_info" name="home_info"  placeholder="请输入家乡描述"></textarea>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>学校:</span>
+        <input id="school" type="text"  name="school" placeholder="请输入您的大学名称"/>
+        <div class="error-msg"></div>
+    </label>
+    <label>
+        <span>学校描述 :</span>
+        <textarea id="school_info" name="school_info"  placeholder="请输入学校描述"></textarea>
+        <div class="error-msg"></div>
+    </label>
+    <div class="success-msg"></div>
+    <label>
+        <span>&nbsp;</span>
+        <input type="submit" class="button" value="提交"/>
+    </label>
+
+
+</form>
+{% endif %}
+</body>
+</html>
